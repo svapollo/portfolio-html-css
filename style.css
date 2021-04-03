@@ -20,7 +20,7 @@ html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li
     --corTextPrimaria:black;
     --corTextSecundaria:white;
     --fonteTextPrimaria:'IBM Plex Mono', monospace;
-    --corBotaoDark:black;
+    --corBotao:rgb(90, 90, 90);
 }   
 
 .hidden{
@@ -142,20 +142,19 @@ footer .redes-sociais li a p{
     height: 50px;
     display: none;
 }
-label{
-    font-family: Georgia, 'Times New Roman', Times, serif;    
-    width: 50px;
-    padding: 10px;
-    background-color: var(--corBotaoDark);
-    color:white;
-      
+
+label img{
+    width: 2rem;
+    margin: 10px;
+    border-radius: 7px;
+    background-color: black;
 }
 .ativar-dark:checked ~.dark-mode{
     --corBackgroundPrimaria: rgb(114, 114, 114);
     --corBackgroundSecundaria: rgb(70, 70, 70);
     --corTextPrimaria:#fff;
     --corBorderPrimaria: rgb(255, 167, 2);
-    --corBotaoDark: rgb(255, 196, 86);
+    --corBotao: black;
 }
 
 
