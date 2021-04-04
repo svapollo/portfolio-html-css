@@ -20,7 +20,7 @@ html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li
     --corTextPrimaria:black;
     --corTextSecundaria:white;
     --fonteTextPrimaria:'IBM Plex Mono', monospace;
-    --corBotao:rgb(90, 90, 90);
+    --corBotao:white;
 }   
 
 .hidden{
@@ -80,7 +80,6 @@ main{
     background-color: var(--corBackgroundPrimaria);
     color: var(--corTextPrimaria);
 }
-
 main .coluna{
     padding: 6px;
 }
@@ -130,6 +129,10 @@ footer nav .redes-sociais li{
 }
 footer .redes-sociais li a img{
     width: 95px;
+    transition: .2s;
+}
+footer nav .redes-sociais li a:hover img{
+    transform: scale(1.5) translateY(-10px);
 }
 footer .redes-sociais li a p{
     font-size: 3rem;
@@ -142,12 +145,28 @@ footer .redes-sociais li a p{
     height: 50px;
     display: none;
 }
-
+header .container{
+    position: relative;
+}
+label{
+    position: absolute;
+    top: 17px;
+    right: 19px;
+    width: 58px;
+    height: 34px;
+    background-color: var(--corTextPrimaria);
+    border-radius: 22px;
+    padding: 5px 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
 label img{
-    width: 2rem;
-    margin: 10px;
-    border-radius: 7px;
-    background-color: black;
+    width: 1.5rem;
+    border-radius: 18px;
+    background-color: var(--corBotao);
+    position: relative;
+    transform: translateX(0);
+    transition: all ease .3s;
 }
 .ativar-dark:checked ~.dark-mode{
     --corBackgroundPrimaria: rgb(114, 114, 114);
@@ -156,7 +175,28 @@ label img{
     --corBorderPrimaria: rgb(255, 167, 2);
     --corBotao: black;
 }
+.ativar-dark:checked ~.dark-mode label img{
+    position: relative;
+    transform: translateX(25px);
+    transition: all ease .3s;
+}
 
+@keyframes aumentarLargura{
+    from{
+        width:0;
+    }
+    to{
+        width: 100%;
+    }
+}
+@keyframes aumentarAltura{
+    from{
+        height: 0;
+    }
+    to{
+        height: 100%;
+    }
+}
 
 /* @MEDIA */
 @media only screen and (min-width: 1024px){
@@ -192,9 +232,38 @@ header .coluna-direita{
 main .coluna section{
     border: 1px solid var(--corBorderPrimaria);
     padding: 20px;
+    position: relative;
 }
 main .coluna{
     padding: 0;
+}
+main .coluna section span{
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 2px solid transparent;
+}
+main .coluna section .topo-direita{
+    top: 2px;
+    left: 2px;
+    animation-name: aumentarLargura, aumentarAltura;
+    animation-duration: 1s, 1s;
+    animation-delay: 1s, 2s;
+    animation-fill-mode: forwards;
+    border-top-color: var(--corBorderPrimaria);
+    border-right-color: var(--corBorderPrimaria);
+}
+main .coluna section .baixo-esquerda{
+    bottom: -5px;
+    right: -6px;
+    animation-name: aumentarLargura, aumentarAltura;
+    animation-duration: 1s, 1s;
+    animation-delay: 3s, 4s;
+    animation-fill-mode: forwards;
+    border-bottom-color: var(--corBorderPrimaria);
+    border-left-color: var(--corBorderPrimaria);
+
 }
 footer nav .redes-sociais li{
     margin: 0px 50px;
